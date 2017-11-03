@@ -78,7 +78,37 @@ app.get('/api/track/update', (req, res) => {
       return;
     }
   });
-  res.send('track update done');
+  res.send('track update running...');
+});
+
+// get volforce
+app.get('/api/volforce', (req, res) => {
+  const volforceJsonPath = 'private/data/volforce.json';
+  const players = JSON.parse(fs.readFileSync(volforceJsonPath, 'utf8'));
+
+  let html = '<ul>'
+  for (const key in players) {
+    const player = players[key];
+    const name = player['name'];
+    const volforce = player['volforce'];
+
+    html += '<li>' + name + '：' + volforce + '</li>';
+  }
+  html += '</ul>';
+
+  res.send(html);
+});
+
+// update volforce
+app.get('/api/volforce/update', (req, res) => {
+  const COMMAND = 'python private/bin/volforce.py';
+  exec(COMMAND, function(error, stdout, stderr) {
+    if (error) {
+      res.send('exec error : ' + error);
+      return;
+    }
+  });
+  res.send('volforce update running...');
 });
 
 // get weekly
@@ -125,7 +155,7 @@ app.get('/api/track/weekly/update', (req, res) => {
     }
   });
 
-  res.send('track weekly update done');
+  res.send('track weekly update running...');
 });
 
 
