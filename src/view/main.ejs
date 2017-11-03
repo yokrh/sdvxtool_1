@@ -7,27 +7,46 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="/static/css/app.css" />
     <style>
-      .twitter {
+      .scssdvx {
         padding: 4px 2%;
       }
-      .twitter .title {
+      .scssdvx .title {
         text-align: center;
         padding: 8px 0 16px 0;
         font-size: 24px;
         color: #555;
       }
-      .twitter .data {
+      .scssdvx .data {
         padding: 8px;
         font-size: 12px;
       }
-      .twitter .data .note {
+      .scssdvx .data .note {
         padding-left: 8px;
       }
-    </style>
+      #volforce ul {
+        padding: 4px 2% 16px 2%;
+      }
+      #volforce ul li {
+        padding: 6px;
+        font-size: 16px;
+      }    </style>
   </head>
   <body>
-    <dl class="twitter">
+    <dl class="scssdvx">
       <dt class="title">最近のscssdvx</dt>
+      <dd class="data">
+        <div id="volforce"></div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript">
+          $.ajax({
+              url: "/api/volforce"
+          }).done(function(data){
+            $('#volforce').append(data);
+          }).fail(function(data){
+              alert('データの取得に失敗しました。');
+          });
+        </script>
+      </dd>
       <dd class="data">
         <p class="note">※ 2,3日以内の公開ツイートが表示されます</p>
       </dd>
