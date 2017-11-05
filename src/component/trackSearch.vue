@@ -1,6 +1,6 @@
 <template>
   <div class="track-search">
-    <h1 class="page-title">譜面検索</h1>
+    <h1 class="page-title">SDVX譜面検索</h1>
     <form class="track-search-form" @submit.prevent="onSubmit">
       <dl class="levels">
         <dt class="title">LEVEL</dt>

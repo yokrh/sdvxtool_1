@@ -8,10 +8,10 @@
       <a href="http://bemaniwiki.com/index.php?SOUND%20VOLTEX%20IV%20HEAVENLY%20HAVEN">SDVX Wiki</a>
     </dd>
     <dd class="link">
-      <a href="http://www.sdvx.in/">譜面サイト</a>
+      <a href="http://nearnoah.sakura.ne.jp/sdvxiv/">スコアツール</a>
     </dd>
     <dd class="link">
-      <a href="http://nearnoah.sakura.ne.jp/sdvxiv/">スコアツール</a>
+      <a href="http://www.sdvx.in/">SDVX譜面保管所IV</a><span class="special">★ Ultimate Special Thanks</span>
     </dd>
   </dl>
 </template>
@@ -31,6 +31,11 @@
     text-align: center;
     &:nth-child(2) {
       padding-top: 20px;
+    }
+    .special {
+      display: block;
+      padding-top: 6px;
+      font-size: 8px;
     }
   }
 }

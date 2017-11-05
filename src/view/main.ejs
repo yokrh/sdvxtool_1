@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>イタリアンボルテレストラン scssdvx</title>
-    <meta name="description" content="scssdvxのページです"></meta>
+    <meta name="description" content="scssdvx（身内用）のページです"></meta>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="/static/css/app.css" />
     <style>
@@ -12,45 +12,52 @@
       }
       .scssdvx .title {
         text-align: center;
-        padding: 8px 0 16px 0;
+        padding: 16px 0;
         font-size: 24px;
         color: #555;
       }
       .scssdvx .data {
-        padding: 8px;
         font-size: 12px;
       }
-      .scssdvx .data .note {
-        padding-left: 8px;
+      .scssdvx .data .volforce ul {
+        padding: 4px 2% 12px 2%;
       }
-      #volforce ul {
-        padding: 4px 2% 16px 2%;
-      }
-      #volforce ul li {
+      .scssdvx .data .volforce ul li {
         padding: 6px;
         font-size: 16px;
-      }    </style>
+      }
+      .scssdvx .data.volforce-update a {
+        display: block;
+        padding: 0 0 12px 12px;
+      }
+      .scssdvx .data.twitter-note .note {
+        padding: 12px 0 4px 8px;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
   <body>
     <dl class="scssdvx">
       <dt class="title">最近のscssdvx</dt>
       <dd class="data">
-        <div id="volforce"></div>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <div class="volforce"></div>
         <script type="text/javascript">
           $.ajax({
               url: "/api/volforce"
           }).done(function(data){
-            $('#volforce').append(data);
+            $('.volforce').append(data);
           }).fail(function(data){
               alert('データの取得に失敗しました。');
           });
         </script>
       </dd>
-      <dd class="data">
-        <p class="note">※ 2,3日以内の公開ツイートが表示されます</p>
+      <dd class="data volforce-update">
+        <a href="/api/volforce/update">ボルフォース更新（30秒くらいかかります）</a>
       </dd>
-      <dd class="data">
+      <dd class="data twitter-note">
+        <p class="note">※ 数日以内の公開ツイートが表示されます</p>
+      </dd>
+      <dd class="data twitter">
         <a class="twitter-timeline"  href="https://twitter.com/hashtag/scssdvx" data-widget-id="923773689023176704"></a>
       </dd>
     </dl>

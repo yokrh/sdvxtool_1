@@ -4,7 +4,7 @@ import childProcess from 'child_process';
 const exec = childProcess.exec;
 
 // express
-var app = express();
+const app = express();
 
 // static
 app.use('/static', express.static('dist'));
@@ -27,7 +27,7 @@ app.get('/scssdvx', (req, res) => {
   app.set('views', 'src/view');
   app.set('view engine', 'ejs');
 
-  var params = {};
+  const params = {};
   res.render('main', params);
 });
 
