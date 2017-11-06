@@ -31,6 +31,15 @@ app.get('/scssdvx', (req, res) => {
   res.render('main', params);
 });
 
+// html
+app.get(/.*\.html/, (req, res) => {
+  app.set('views', 'src/view');
+  app.set('view engine', 'ejs');
+  app.engine('html', require('ejs').renderFile);
+  const html = req.originalUrl.slice(1);
+  res.render(html);
+});
+
 
 //// api
 
